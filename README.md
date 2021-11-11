@@ -1,6 +1,10 @@
 # Sea Breeze Analysis Project
-Jacob Brand, Rachael Dewey, Forrest Johnson, Rohith Bakkannagari, and Joshua Allard
+<figure>
+    <img alt="Formation of sea breeze" height="300px" src="https://www.weather.gov/images/jetstream/ocean/seabreeze.jpg">
+    <figcaption > Formation of a sea breeze </figcaption>
+</figure>
 <hr>
+Jacob Brand, Rachael Dewey, Forrest Johnson, Rohith Bakkannagari, and Joshua Allard
 
 ## Introduction
 This site contains our project for DSBA 6162 Knowledge Discovery in Databases class at UNC Charlotte, Fall 2021, taught by Dr. Pamela Thompson. 
