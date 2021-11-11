@@ -1,9 +1,9 @@
-# Seabreeze Analysis Project
+# Sea Breeze Analysis Project
 Jacob Brand, Rachael Dewey, Forrest Johnson, Rohith Bakkannagari, and Joshua Allard
 <hr>
 
 ## Introduction
-This site contains our project for DSBA 6162 Knowledge Discovery and Databases class at UNC Charlotte, Fall 2021, taught by Dr. Pamela Thompson. 
+This site contains our project for DSBA 6162 Knowledge Discovery in Databases class at UNC Charlotte, Fall 2021, taught by Dr. Pamela Thompson. 
 
 ### Introduction to Problem/Opportunity: 
 In his presentation on research into shark presence and attacks., Joe Merchant asserted that there is a relationship between the occurrence of sea breezes and shark presence at the shoreline. However, there is a lack of available data on when sea breezes have occurred. Based on the existing Carolina coast weather data that has been collected for the past ten years, we aim to create a model that helps to predict the conditions that are most viable for creating a sea breeze utilizing two sets of data from onshore weather stations and data from an offshore weather buoy.
@@ -27,3 +27,5 @@ Using buoy and coastal weather station data from within the last ten years, do v
 
 ### Calculation of Sea Breeze
 <img alt="Colaboratory logo" height="45px" src="https://journals.ametsoc.org/view/journals/wefo/18/4/images/i1520-0434-18-4-614-e1.gif" align="left" vspace="0px">
+
+
