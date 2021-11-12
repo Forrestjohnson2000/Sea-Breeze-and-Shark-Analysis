@@ -30,6 +30,7 @@ Using buoy and coastal weather station data from within the last ten years, do v
 - Weather Buoy Data:  https://www.ndbc.noaa.gov/station_page.php?station=41033
     -  For the buoy data we went to the National Data Buoy Center (NDBC) and collected data over the past 8 years from a buoy off of South Carolina's coastline. 
 
+## Data Collection, Preprocessing, and Exploratory Data Analysis
 
 ### Buoy Data
 
@@ -40,6 +41,29 @@ This data was suggested to us by meteorologist Joe Merchant because it includes 
 ![image](https://user-images.githubusercontent.com/92127317/141392400-a0ba339e-9dc8-4191-b8f2-e3ad3c9aa27c.png)
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Buoy%20Data%20Description.jpg)
+
+We make the assumption that the values 99, 999, and 9999 represent missing data. We replace these with null values, "nan" and recheck the data to see current statistics for each variable that was skewed by the 99/999/9999 values.
+
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
+
+We impute the issing data with the means using SimpleImputer. Then, we visualize the Buoy Data.
+
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
+
+From the histograms, we can see that Wind Speed ("WSPD"), Wind Direction ("WDIR"), and Air Temperature ("ATMP") are not normally distributed. Pressure ("PRES") and Gust ("GST") do appear to be normally distributed.
+
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Scatter%20Plots.png)
+
+We also create a scatter matrix of all variables. Based on this, there does not appear to be many strong correlations between variables except for Gust ("GST") and Wind Speed ("WSPD"). This makes intuitive sense, as high wind speeds create gusts, so these variables are positively correlated.
+
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Correlation%20Matrix.png)
+
+The above figure is a correlation heatmap. What we take from this is that windspeed and gust are highly correlated at .84, air temp and water temp are fairly correlated at .64, and month and air temp are somewhat positively correlated at .32.
+
+### Weather Station Data
+
+
+### Merging Datasets
 
 ### Calculation of Sea Breeze
 <img alt="Colaboratory logo" height="45px" src="https://journals.ametsoc.org/view/journals/wefo/18/4/images/i1520-0434-18-4-614-e1.gif" align="left" vspace="0px">
