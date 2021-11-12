@@ -23,6 +23,8 @@ Using buoy and coastal weather station data from within the last ten years, do v
     <figcaption > Formation of a sea breeze </figcaption>
 </figure>
 
+<hr>
+
 **Data Resources:**
 - Weather Station Data: https://mesonet.agron.iastate.edu/request/download.phtml?network=SC_ASOS
     -  For weather station data we used the METAR data collected from Iowa State University which contained datasets for multiple years from weather stations across the United             States. We focused on two weather stations off of North and South Carolina. **Station HXD** located at Hilton Head Island in South Carolina and **Station SUT** located             near Wilmington North Carolina.
