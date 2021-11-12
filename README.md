@@ -39,7 +39,7 @@ This data was suggested to us by meteorologist Joe Merchant because it includes 
 
 ![image](https://user-images.githubusercontent.com/92127317/141392400-a0ba339e-9dc8-4191-b8f2-e3ad3c9aa27c.png)
 
-![image](Images/Buoy%20Data%20Description.jpg)
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Buoy%20Data%20Description.jpg)
 
 ### Calculation of Sea Breeze
 <img alt="Colaboratory logo" height="45px" src="https://journals.ametsoc.org/view/journals/wefo/18/4/images/i1520-0434-18-4-614-e1.gif" align="left" vspace="0px">
