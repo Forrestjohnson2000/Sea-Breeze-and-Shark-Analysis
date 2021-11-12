@@ -50,7 +50,7 @@ We make the assumption that the values 99, 999, and 9999 represent missing data.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
 
-We impute the issing data with the means using SimpleImputer. Then, we visualize the Buoy Data.
+We impute the issing data with the means using SimpleImputer. Now we can visualize the Buoy Data.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
 
