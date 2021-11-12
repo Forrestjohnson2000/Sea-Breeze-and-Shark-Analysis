@@ -50,7 +50,7 @@ We make the assumption that the values 99, 999, and 9999 represent missing data.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
 
-We impute the issing data with the means using SimpleImputer. Now we can visualize the Buoy Data.
+We impute the missing data with the means using SimpleImputer. Now we can visualize the Buoy Data.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
 
@@ -70,6 +70,6 @@ The above figure is a correlation heatmap. What we take from this is that windsp
 ### Merging Datasets
 
 ### Calculation of Sea Breeze
-<img alt="Colaboratory logo" height="45px" src="https://journals.ametsoc.org/view/journals/wefo/18/4/images/i1520-0434-18-4-614-e1.gif" align="left" vspace="0px">
+<img alt="Sea breeze conducive score formula" height="45px" src="https://journals.ametsoc.org/view/journals/wefo/18/4/images/i1520-0434-18-4-614-e1.gif" align="left" vspace="0px">
 
 
