@@ -1,8 +1,4 @@
 # Sea Breeze Analysis Project
-<figure>
-    <img alt="Formation of sea breeze" height="300px" src="https://www.weather.gov/images/jetstream/ocean/seabreeze.jpg">
-    <figcaption > Formation of a sea breeze </figcaption>
-</figure>
 <hr>
 Jacob Brand, Rachael Dewey, Forrest Johnson, Rohith Bakkannagari, and Joshua Allard
 
@@ -21,6 +17,11 @@ Some features we plan to look into include, but are not limited to:
 
 **Research Question:**
 Using buoy and coastal weather station data from within the last ten years, do various coastal weather phenomena such as sea and land temperature and turbidity accurately predict the presence of a sea breeze on the Carolina coast?
+
+<figure>
+    <img alt="Formation of sea breeze" height="300px" src="https://www.weather.gov/images/jetstream/ocean/seabreeze.jpg">
+    <figcaption > Formation of a sea breeze </figcaption>
+</figure>
 
 **Data Resources:**
 - Weather Station Data: https://mesonet.agron.iastate.edu/request/download.phtml?network=SC_ASOS
