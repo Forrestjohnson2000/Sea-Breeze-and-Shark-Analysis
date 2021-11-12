@@ -38,7 +38,11 @@ The first data we collected for the calculation of Sea Breeze was from Station 4
 
 This data was suggested to us by meteorologist Joe Merchant because it includes important air and water temperature data, which the difference between which is a significant indicator of a sea breeze. The buoy data was collected from the last 10 years and includes the columns Year (**"YY"**), Month (**"MM"**), Day (**"DD"**), Minute (**"mm"**), Hour (**"hh"**), Wind Direction (**"WDIR"**), Wind Speed (**"WSPD"**), Gust (**"GST"**), Air Pressure (**"PRES"**), Air Temperature (**"ATMP"**), and Water Temperature (**"WTMP"**). Upon reading the original csv, we parsed the Year, Month, and Day columns to a single (**"date"**) column. We also dropped the Minute (**"mm"**) column.
 
+This displays the head and tail of our initial dataset.
+
 ![image](https://user-images.githubusercontent.com/92127317/141392400-a0ba339e-9dc8-4191-b8f2-e3ad3c9aa27c.png)
+
+Next, we can examine the summary of each variable.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Buoy%20Data%20Description.jpg)
 
