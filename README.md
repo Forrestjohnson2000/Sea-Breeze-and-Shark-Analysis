@@ -42,23 +42,13 @@ This displays the head and tail of our initial dataset.
 
 ![image](https://user-images.githubusercontent.com/92127317/141392400-a0ba339e-9dc8-4191-b8f2-e3ad3c9aa27c.png)
 
-Next, we can examine the summary of each variable.
-
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Buoy%20Data%20Description.jpg)
-
-We make the assumption that the values 99, 999, and 9999 represent missing data. We replace these with null values, "nan" and recheck the data to see current statistics for each variable that was skewed by the 99/999/9999 values.
+We make the assumption that the values 99, 999, and 9999 represent missing data. We replace these with null values, "nan" and recheck the data to see current statistics for each variable that was skewed by the 99/999/9999 values and then impute the missing data with the means. Now we can visualize the Buoy Data.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
-
-We impute the missing data with the means using SimpleImputer. Now we can visualize the Buoy Data.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
 
 From the histograms, we can see that Wind Speed ("WSPD"), Wind Direction ("WDIR"), and Air Temperature ("ATMP") are not normally distributed. Pressure ("PRES") and Gust ("GST") do appear to be normally distributed.
-
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Scatter%20Plots.png)
-
-We also create a scatter matrix of all variables. Based on this, there does not appear to be many strong correlations between variables except for Gust ("GST") and Wind Speed ("WSPD"). This makes intuitive sense, as high wind speeds create gusts, so these variables are positively correlated.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Correlation%20Matrix.png)
 
