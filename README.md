@@ -42,17 +42,17 @@ This displays the head and tail of our initial dataset.
 
 ![image](https://user-images.githubusercontent.com/92127317/141392400-a0ba339e-9dc8-4191-b8f2-e3ad3c9aa27c.png)
 
-We make the assumption that the values 99, 999, and 9999 represent missing data. We replace these with null values, "nan" and recheck the data to see current statistics for each variable that was skewed by the 99/999/9999 values and then impute the missing data with the means. Now we can visualize the Buoy Data.
+We make the assumption that the values 99, 999, and 9999 represent missing data. We replace these with null values, "nan" and recheck the data to see current statistics for each variable that was skewed by the 99/999/9999 values and then impute the missing data with the means. 
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
-
 From the histograms, we can see that Wind Speed ("WSPD"), Wind Direction ("WDIR"), and Air Temperature ("ATMP") are not normally distributed. Pressure ("PRES") and Gust ("GST") do appear to be normally distributed.
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Correlation%20Matrix.png)
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
 
-The above figure is a correlation heatmap. What we take from this is that windspeed and gust are highly correlated at .84, air temp and water temp are fairly correlated at .64, and month and air temp are somewhat positively correlated at .32.
+The below figure is a correlation heatmap. What we take from this is that windspeed and gust are highly correlated at .84, air temp and water temp are fairly correlated at .64, and month and air temp are somewhat positively correlated at .32.
+
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Correlation%20Matrix.png)
 
 ### Weather Station Data
 
