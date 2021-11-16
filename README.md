@@ -72,7 +72,7 @@ The above figure is a correlation heatmap. What we take from this is that windsp
 ### Calculation of Sea Breeze
 <img alt="Sea breeze conducive score formula" height="45px" src="https://journals.ametsoc.org/view/journals/wefo/18/4/images/i1520-0434-18-4-614-e1.gif" align="left" vspace="0px">
 
-where SBI is the sea breeze index, U is the cross-coast component of the synoptic wind with offshore winds taken as positive and ΔT is difference in temperature between the air temperature and water temperature.
+where SBI is the sea breeze index, U is ___ and ΔT is difference in temperature between the air temperature and water temperature.
 
 ## Data Modeling
 
