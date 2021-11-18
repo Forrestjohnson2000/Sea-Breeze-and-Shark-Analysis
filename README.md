@@ -56,7 +56,24 @@ The below figure is a correlation heatmap. What we take from this is that windsp
 
 ### Weather Station Data
 
-This data was collected over the last 8 years and includes the columns Weather Station (**"station"**), the timestamp for when the data was recorded (**"valid"**), Temperature in Celsius (**"tmpc"**), Dew Point in Celsius (**"dwpc"**), Relative Humidity (%) (**"relh"**), Real Feel Temperature in Farenheit (**"feel"**), Wind Direction in degrees from True North (**"drct"**), Wind Speed in mph (**"sped"**), Precipitation in mm (**"p01m"**), Wind Gust in mph (**"gust_mph"**), Sky Level 1 and 2 Cloud Coverage (**"skyc1"** and **"skyc2"**), and lastly Cloud Height Level 1 and 2 (**"skyl1"** and **"skyl2"**).
+For weather station data we used the METAR data collected from Iowa State University which contained datasets for multiple years from weather stations across the United States. We focused on two weather stations off of North and South Carolina, Station HXD located at Hilton Head Island in South Carolina and Station SUT located near Wilmington North Carolina.
+
+This data was collected over the last 8 years and includes the columns Weather Station ("station"), the timestamp for when the data was recorded ("valid"), Temperature in Celsius ("tmpc"), Dew Point in Celsius ("dwpc"), Relative Humidity (%) ("relh"), Real Feel Temperature in Farenheit ("feel"), Wind Direction in degrees from True North ("drct"), Wind Speed in mph ("sped"), Precipitation in mm ("p01m"), Wind Gust in mph ("gust_mph"), Sky Level 1 and 2 Cloud Coverage ("skyc1" and "skyc2"), and lastly Cloud Height Level 1 and 2 ("skyl1" and "skyl2").
+
+We collected our weather station data from two different weather stations. Uploading both datasets separately as their own dataframes.
+
+To gain an understanding of what each column was read in as. A few notable takeaways are that the variable **mslp**, the measurement of sea level pressure, has all null values, and therefore provides no insight to the dataframe. Additionally, some of the other columns such as **gust_mph** and the cloud coverage and height variables seem to have a significantly lower number of non-null values, which we will dig into later.
+
+![image](https://user-images.githubusercontent.com/48931690/142335608-e539073b-9826-4738-a39c-f459f1389885.png)
+
+The following images examine the initial HXD weather station dataset further. showing the first few values as well as a description of the statistically summations of the corresponding variables.
+![image](https://user-images.githubusercontent.com/48931690/142335764-1923743b-a277-4f7c-b310-7684cdb10a6c.png)
+
+![image](https://user-images.githubusercontent.com/48931690/142335781-be16ea28-5c99-4b16-8399-3c1a1359ca99.png)
+
+We convert the **"valid"** column to the datetime format for both datasets as this is the timestamp of when the data was recorded and this format will be easier to manipulate.
+
+Because p01m, gust_mph, skyc2, and skyl1/skyl2 have a significant percentage of null values, over about 20%, we remove them from the analysis. This also takes into consideration the fact that precipitation and cloud coverage are not considered to have a large impact on the presence of sea breeze, according to Joe Merchant. On the other hand, wind gust is highly correlated to wind speed, so removing gust_mph will not impact the overall analysis.
 
 ### Merging Datasets
 
