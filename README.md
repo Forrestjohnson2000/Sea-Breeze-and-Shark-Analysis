@@ -75,12 +75,88 @@ We convert the **"valid"** column to the datetime format for both datasets as th
 
 Because p01m, gust_mph, skyc2, and skyl1/skyl2 have a significant percentage of null values, over about 20%, we remove them from the analysis. This also takes into consideration the fact that precipitation and cloud coverage are not considered to have a large impact on the presence of sea breeze, according to Joe Merchant. On the other hand, wind gust is highly correlated to wind speed, so removing gust_mph will not impact the overall analysis.
 
+Using scatter matricies we can see how each of the variables interact with one another in both the HXD and SUT weateher stations. Both stations have very similar results which makes sense as they are in a geographically similar location.
+
+![image](https://user-images.githubusercontent.com/48931690/142336870-23d295d7-bfaa-4820-a6c2-e7b52521d706.png)
+
+![image](https://user-images.githubusercontent.com/48931690/142337053-364bca74-4ee5-4ab4-94c5-5e9ce7ea05e0.png)
+
+To get a more simplified exploration of relationships we explored the correlation between varaibles using an *sns heatmap* which makes the correlation between variables very visiblly apparent.
+
+![image](https://user-images.githubusercontent.com/48931690/142336909-f1e3f048-96c1-4a22-b40a-1e313b0141ae.png)
+
+From the above correlation heatmap of the SUT station data, we can see that:
+1.   The variables **"dwpc"** has a high correlation with **"tmpc"** at 0.91 and with **"feel"** at **"0.9"**. The variables **"feel"** and **"tmpc"** are extremely highly correlated at 0.99.
+2.   The variables **"relh"** and **"dwpc"** are moderately correlated at 0.47. The variables **"drct"** and **"sped"** are moderately correlated at 0.51.
+
+The above observations are mostly inuitive, as they represent weather phenomena and/or measurements that are known to have a caclulable relationship. However, we may be surprised to learn that wind direction **"drct"** and speed **"sped"** are moderately correlated.
+
+![image](https://user-images.githubusercontent.com/48931690/142336948-4a59ad1b-deee-4dca-b28f-add962813d82.png)
+
+From the above correlation heatmap of the HXD station data, we can see that:
+1.   The variables **"dwpc"** has a high correlation with **"tmpc"** at 0.88 and with **"feel"** at **"0.86"**. The variables **"feel"** and **"tmpc"** are extremely highly correlated at 0.98.
+2.   The variables **"relh"** and **"dwpc"** are moderately correlated at 0.44. The variables **"drct"** and **"sped"** are moderately correlated at 0.4.
+
+The above observations are very similar to those gained from the previous SUT station data correlation heatmap. However, we can also note that in general, the correlations between variables for this HXD dataset are slightly lower.
+
+
+
 ### Merging Datasets
+After cleaning and completing some of the preparation for the buoy and weather station datasets, they will need to be merged into a single dataset for modeling. Merging SUT and HXD datasets were simple as the contained the same variables and measurements, therefore the process only required an appending of one dataset to the other.
+
+Combining the data with the buoy was a little more complicated, but it was managed by inner joining the datasets and merging them on the date and hour of the records. While both SUT and HXD datassets had multiple records per hour, the buot only had one resulting in repeats in the data.
+
+![image](https://user-images.githubusercontent.com/48931690/142337760-663f194b-2829-4c72-9ef6-7e120faf6ff9.png)
+
+
+
 
 ### Calculation of Sea Breeze
-<img alt="Sea breeze conducive score formula" height="45px" src="https://journals.ametsoc.org/view/journals/wefo/18/4/images/i1520-0434-18-4-614-e1.gif" align="left" vspace="0px">
+The Formula to calculate the Sea Breeze Index (SBI) according to the Simpson and Walsh is 
+![image](https://user-images.githubusercontent.com/48931690/142338267-3720cb5e-0aa7-4e10-bed6-1da18d772ad9.png)
 
-where SBI is the sea breeze index, U is ___ and ΔT is difference in temperature between the air temperature and water temperature.
+
+                                      
+ Where U is the cross-coast component of the synoptic wind with offshore winds taken as     positive
+ΔT = Tair − Tsea is the difference in temperature between the ocean surface and the overland air.
+After taking reference from the Bernouli’s equation and modifications and calculations, equation can be modified as 
+
+![image](https://user-images.githubusercontent.com/48931690/142338306-004281f2-a8b0-49e1-813b-1933c6d2e784.png)
+
+Where h represents the thickness of the air mass that exchanges heat with the surface
+
+**Formula to calculate Air Density:**
+Calculate the saturation vapor pressure at given temperature T using the formula
+ 
+          *Svp = 6.1078 x 10^[7.5*T /(T + 237.3)],*
+
+where T is measured in degrees Celsius. Saturation vapor pressure is the vapor pressure at 100% relative humidity.
+Find the actual vapor pressure, multiplying the saturation vapor pressure by the relative humidity: 
+                 *Actual(pv) = Svp x RelH.*
+Subtract the vapor pressure from the total air pressure to find the pressure of dry air: 
+                   *pd = p - pv*
+ The formula to calculate the air density is given by 
+       *ρ = (pd / (Rd x T)) + (pv / (Rv x T))*
+        where 
+              pd is the pressure of dry air in Pa
+              pv is the water vapor pressure in Pa
+              T is the air temperature in Kelvins
+
+Rd is the specific gas constant for dry air equal to 287.058 J/(kg·K), and
+Rv is the specific gas constant for water vapor equal to 461.495 J/(kg·K)
+
+After substituting the values in the equation we get 
+
+*ρ = (pd / (287.058 T)) + (pv / (461.49 T))*
+
+This variable is known as **SBI** and a value under 5 is an indication that weather factors are conducive to produce a sea breeze. We are still working on perfecting these variables and are not quite sure how accurate the final results are yet based on the description of **SBI**.
+
+Here are our results based on our calculations and the constants given:
+
+![image](https://user-images.githubusercontent.com/48931690/142337818-3e794def-3ad8-4e41-9cee-1fd051f7abd4.png)
+
+![image](https://user-images.githubusercontent.com/48931690/142338601-68abc8cc-5965-43b3-8b60-7fdd70df1b8b.png)
+
 
 ## Data Modeling
 
