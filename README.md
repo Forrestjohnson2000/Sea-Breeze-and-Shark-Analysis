@@ -128,29 +128,29 @@ Where *h* represents the thickness of the air mass that exchanges heat with the 
 **Formula to calculate Air Density:**
 Calculate the saturation vapor pressure at given temperature T using the formula
  
-          *Svp = 6.1078 x 10^[7.5*T /(T + 237.3)],*
+          Svp = 6.1078 x 10^[7.5*T /(T + 237.3)],
 
 where *T* is measured in degrees Celsius. Saturation vapor pressure is the vapor pressure at 100% relative humidity.
 Find the actual vapor pressure, multiplying the saturation vapor pressure by the relative humidity: 
 
-            *Actual(pv) = Svp x RelH.*
+            Actual(pv) = Svp x RelH.
 Subtract the vapor pressure from the total air pressure to find the pressure of dry air: 
 
-                   *pd = p - pv*
- The formula to calculate the air density is given by 
+                   pd = p - pv
+ The formula to calculate the air density is given by: 
  
-       *ρ = (pd / (Rd x T)) + (pv / (Rv x T))*
+       ρ = (pd / (Rd x T)) + (pv / (Rv x T))
         where 
-              *pd* is the pressure of dry air in Pa
-              *pv* is the water vapor pressure in Pa
-              *T* is the air temperature in Kelvins
+              pd is the pressure of dry air in Pa
+              pv is the water vapor pressure in Pa
+              T is the air temperature in Kelvins
 
 *Rd* is the specific gas constant for dry air equal to 287.058 J/(kg·K), and
 *Rv* is the specific gas constant for water vapor equal to 461.495 J/(kg·K)
 
 After substituting the values in the equation we get 
 
-        *ρ = (pd / (287.058 T)) + (pv / (461.49 T))*
+        ρ = (pd / (287.058 T)) + (pv / (461.49 T))
 
 This variable is known as **SBI** and a value under 5 is an indication that weather factors are conducive to produce a sea breeze. We are still working on perfecting these variables and are not quite sure how accurate the final results are yet based on the description of **SBI**.
 
