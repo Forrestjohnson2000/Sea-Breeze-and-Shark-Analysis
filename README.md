@@ -141,9 +141,9 @@ Subtract the vapor pressure from the total air pressure to find the pressure of 
  
        *ρ = (pd / (Rd x T)) + (pv / (Rv x T))*
         where 
-              pd is the pressure of dry air in Pa
-              pv is the water vapor pressure in Pa
-              T is the air temperature in Kelvins
+              *pd* is the pressure of dry air in Pa
+              *pv* is the water vapor pressure in Pa
+              *T* is the air temperature in Kelvins
 
 *Rd* is the specific gas constant for dry air equal to 287.058 J/(kg·K), and
 *Rv* is the specific gas constant for water vapor equal to 461.495 J/(kg·K)
