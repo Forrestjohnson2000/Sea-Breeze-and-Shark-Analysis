@@ -163,9 +163,11 @@ Here are our results based on our calculations and the constants given:
 
 ## Data Modeling
 
+We decided to model the data using both unsupervised and supervised techniques using k-means clustering and logistic regression. 
+
 ### K-Means Clustering
 
-### Logistic Regression
+Our first data model uses k-means clustering
 
-### Support Vector Machine
+### Logistic Regression
 
