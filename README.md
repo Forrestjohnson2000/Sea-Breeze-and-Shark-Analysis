@@ -167,7 +167,7 @@ We decided to model the data using both unsupervised and supervised techniques u
 
 ### K-Means Clustering
 
-Our first data model uses k-means clustering
+Our first data model uses k-means clustering, with the goal of uncovering significant clusters that might indicate the presence of a sea breeze.
 
 ### Logistic Regression
 
