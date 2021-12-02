@@ -30,7 +30,7 @@ Using buoy and coastal weather station data from within the last ten years, do v
 - Weather Buoy Data:  https://www.ndbc.noaa.gov/station_page.php?station=41033
     -  For the buoy data we went to the National Data Buoy Center (NDBC) and collected data over the past 8 years from a buoy off of South Carolina's coastline. 
 
-**Group Plan**
+## Group Plan
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Group%207%20Plan.png)
 
