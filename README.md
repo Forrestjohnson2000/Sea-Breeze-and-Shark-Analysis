@@ -160,9 +160,18 @@ This variable is known as **SBI** and a value under 5 is an indication that weat
 
 Here are our results based on our calculations and the constants given:
 
-![image](https://user-images.githubusercontent.com/48931690/142337818-3e794def-3ad8-4e41-9cee-1fd051f7abd4.png)
+```
+Saturated_vapor_pressure = 6.1078 * (10**((7.5*(data.tmpc))/(data.tmpc + 273.15)))
+vapor_pressure = Saturated_vapor_pressure * (data.relh)
+dry_pressure = data.PRES - vapor_pressure
 
-![image](https://user-images.githubusercontent.com/48931690/142338601-68abc8cc-5965-43b3-8b60-7fdd70df1b8b.png)
+air_density = dry_pressure/(287.058*(data.tmpc+273.15)) + vapor_pressure/(461.495*(data.tmpc+273.15))
+
+SBI = 19.6*air_density/(data.ATMP+273.15)
+SBI = SBI*10000
+```
+
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SBI%20Summary.png)
 
 
 ## Data Modeling
