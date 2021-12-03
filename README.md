@@ -189,7 +189,7 @@ Our first data model uses k-means clustering, with the goal of uncovering signif
 
 ### Logistic Regression
 
-We also used logistic regression to model model the relationships between our independent variables (including "SBI") and our target variable, "AttackCat".
+We also used logistic regression to model the relationships between our independent variables (including "SBI") and our target variable, "AttackCat".
 
 ## Conclusion
 
