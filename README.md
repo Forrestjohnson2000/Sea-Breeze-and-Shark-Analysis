@@ -184,3 +184,4 @@ Our first data model uses k-means clustering, with the goal of uncovering signif
 
 ### Logistic Regression
 
+## Conclusion
