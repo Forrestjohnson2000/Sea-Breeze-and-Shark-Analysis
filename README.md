@@ -120,7 +120,7 @@ The Formula to calculate the Sea Breeze Index (SBI) according to the Simpson and
 
 ![image](https://user-images.githubusercontent.com/48931690/142338267-3720cb5e-0aa7-4e10-bed6-1da18d772ad9.png)
                 
- Where *U* is the cross-coast component of the synoptic wind with offshore winds taken as positive.
+ Where *U* is the cross-coast component of the synoptic wind with offshore winds taken as positive.The SBI represents the ratio of synoptic wind kinetic energy to thermal gradient potential energy.Values of SBI that are above some critical value (SBIcrit) typically indicate situations in which synoptic airflow blocks sea breezes; values below (SBIcrit) typically indicate conditions conducive to sea breezes.
  
             ΔT = Tair − Tsea 
 is the difference in temperature between the ocean surface and the overland air. After taking reference from the Bernouli’s equation and modifications and calculations, equation can be modified as 
