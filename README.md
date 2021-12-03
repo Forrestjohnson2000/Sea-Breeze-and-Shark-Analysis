@@ -1,7 +1,7 @@
 # Sea Breeze Analysis Project
 
 Jacob Brand, Rachael Dewey, Forrest Johnson, Rohith Bakkannagari, and Joshua Allard
-<hr>
+
 ## Introduction
 This site contains our project for DSBA 6162 Knowledge Discovery in Databases class at UNC Charlotte, Fall 2021, taught by Dr. Pamela Thompson. 
 
