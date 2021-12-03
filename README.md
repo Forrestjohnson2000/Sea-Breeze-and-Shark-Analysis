@@ -173,6 +173,9 @@ SBI = SBI*10000
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SBI%20Summary.png)
 
+### Shark Data
+
+
 
 ## Data Modeling
 
@@ -184,4 +187,8 @@ Our first data model uses k-means clustering, with the goal of uncovering signif
 
 ### Logistic Regression
 
+We also used logistic regression to model model the relationships between our independent variables (including "SBI") and our target variable, "AttackCat".
+
 ## Conclusion
+
+
