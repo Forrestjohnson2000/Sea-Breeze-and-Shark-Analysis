@@ -29,6 +29,8 @@ Using buoy and coastal weather station data from within the last ten years, do v
     -  For weather station data we used the METAR data collected from Iowa State University which contained datasets for multiple years from weather stations across the United             States. We focused on two weather stations off of North and South Carolina. **Station HXD** located at Hilton Head Island in South Carolina and **Station SUT** located             near Wilmington North Carolina.
 - Weather Buoy Data:  https://www.ndbc.noaa.gov/station_page.php?station=41033
     -  For the buoy data we went to the National Data Buoy Center (NDBC) and collected data over the past 8 years from a buoy off of South Carolina's coastline. 
+-  Shark Presence Data: https://github.com/profunccdata/Knowledge_Discovery_In_Databases
+    -  For the shark presence data we utilized the data made available to us by the professor of this course, Dr. Pamela Thompson, which was previously collected and cleaned by             herself and several of her students in previous courses.
 
 ## Group Plan
 
