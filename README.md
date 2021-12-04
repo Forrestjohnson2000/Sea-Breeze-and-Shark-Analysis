@@ -34,7 +34,7 @@ Using buoy and coastal weather station data from within the last ten years, do v
 
 ## Group Plan
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Group%207%20Plan.png)
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Group%207%20Plan%20Final.png)
 
 ## Data Collection, Preprocessing, and Exploratory Data Analysis
 
