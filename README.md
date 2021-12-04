@@ -186,10 +186,15 @@ This graph shows that SBI is the top feature in predicting a shark attack, with 
 
 We also used a Support Vector Machine (SVM) to model the relationship between our independent variables and "AttackCat". The initial baseline model, based on scaled data, gave the same results as the logistic regression, again due to imbalanced data. We again found that a pipeline of under- and oversampling gave the best result, which gave an accuracy of 0.783 and an ROC AUC score of 0.781.
 
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Matrix.png)
+
 We can also see that SBI has the largest absolute value coefficient. As the variables as scaled, this tells us that it may play a significant role in the overall model.
+
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Coefficients.png)
 
 The permutation importance is the decrease in a model score when a single feature value is randomly shuffled. SBI has the highest permutation importance, followed by PRES. This leads us to believe that these may be the most important features in this model.
 
+![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Importance.png)
 
 ## Conclusion
 
