@@ -182,6 +182,7 @@ After looking at the correlation matrix we removed the variables that had a > 0.
 
 We decided to model the data using both unsupervised and supervised techniques using k-means clustering, logistic regression, and a support vector machine (SVM). 
 
+
 ### K-Means Clustering
 
 Our first data model uses k-means clustering, with the goal of uncovering significant clusters that might indicate the presence of a sea breeze.
@@ -189,6 +190,26 @@ Our first data model uses k-means clustering, with the goal of uncovering signif
 ### Logistic Regression
 
 We also used logistic regression to model the relationships between our independent variables (including "SBI") and our target variable, "AttackCat".
+
+For our model we used the variables in the dataset below including land wind direction, land wind speed, sea wind direction, sea wind speed, pressure, water temperature, and sea breeze indicator to predict our AttackCat shark attack dependent variable.
+
+![LogData](https://user-images.githubusercontent.com/92108275/144726663-0e7bec02-2116-436c-9ccc-ddfd54925bcb.PNG)
+
+We scaled our data using a standard scaler and then created our logistic regression model and achieved the following results:
+
+![Log_first_cm](https://user-images.githubusercontent.com/92108275/144726792-d1ae06cc-e234-4e5c-bcae-81b7699f4dc2.PNG)
+
+We can see from the above that model is quite accurate at .97 but it is only accurate at predicting when there is no shark attack, it never correctly predicts a shark attack, therefore we need to look into undersampling our data.
+
+We then used a pipeline which included both undersampling and oversampling to solve our problem and came up with the following results: We had an overall accuracy score of .810 and an AUC score of .787 which fe found to be a lot better considering the model was now correctly predicting 13 of the 19 total shark attacks in the augmented dataset.
+
+![Log_2nd_cm1](https://user-images.githubusercontent.com/92108275/144726976-953fd8ca-b134-4861-982e-04f49666b7b6.PNG)
+
+Additionally, we looked at the coefficients of our model to teset and see if our calculated Sea Breeze Indicator, was, in fact, making any sort of difference as we hoped. We then found the top 7 features of the dataset by coefficient.
+
+![top7ft](https://user-images.githubusercontent.com/92108275/144727101-daaa86bd-74e1-46a0-8aa7-9a94490b4be2.PNG)
+
+This graph shows that SBI is the top feature in predicting a shark attack, with a highly negative coefficient which would make sense as lower SBI leads to a higher chance of sea breeze. This seems to prove that our Sea Breeze Indicator that we created is indeed a strong predictor of shark attacks as we hypothesized.
 
 ### Support Vector Machine
 
