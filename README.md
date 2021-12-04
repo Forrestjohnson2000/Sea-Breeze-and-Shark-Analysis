@@ -56,10 +56,6 @@ From the histograms, we can see that Wind Speed ("WSPD"), Wind Direction ("WDIR"
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
 
-The below figure is a correlation heatmap. What we take from this is that windspeed and gust are highly correlated at .84, air temp and water temp are fairly correlated at .64, and month and air temp are somewhat positively correlated at .32.
-
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Correlation%20Matrix.png)
-
 ### Weather Station Data
 
 For weather station data we used the METAR data collected from Iowa State University which contained datasets for multiple years from weather stations across the United States. We focused on two weather stations off of North and South Carolina, Station HXD located at Hilton Head Island in South Carolina and Station SUT located near Wilmington North Carolina.
@@ -82,26 +78,6 @@ Using scatter matricies we can see how each of the variables interact with one a
 
 ![image](https://user-images.githubusercontent.com/48931690/142337053-364bca74-4ee5-4ab4-94c5-5e9ce7ea05e0.png)
 
-To get a more simplified exploration of relationships we explored the correlation between varaibles using an *sns heatmap* which makes the correlation between variables very visiblly apparent.
-
-![image](https://user-images.githubusercontent.com/48931690/142336909-f1e3f048-96c1-4a22-b40a-1e313b0141ae.png)
-
-From the above correlation heatmap of the SUT station data, we can see that:
-1.   The variables **"dwpc"** has a high correlation with **"tmpc"** at 0.91 and with **"feel"** at **"0.9"**. The variables **"feel"** and **"tmpc"** are extremely highly correlated at 0.99.
-2.   The variables **"relh"** and **"dwpc"** are moderately correlated at 0.47. The variables **"drct"** and **"sped"** are moderately correlated at 0.51.
-
-The above observations are mostly inuitive, as they represent weather phenomena and/or measurements that are known to have a caclulable relationship. However, we may be surprised to learn that wind direction **"drct"** and speed **"sped"** are moderately correlated.
-
-![image](https://user-images.githubusercontent.com/48931690/142336948-4a59ad1b-deee-4dca-b28f-add962813d82.png)
-
-From the above correlation heatmap of the HXD station data, we can see that:
-1.   The variables **"dwpc"** has a high correlation with **"tmpc"** at 0.88 and with **"feel"** at **"0.86"**. The variables **"feel"** and **"tmpc"** are extremely highly correlated at 0.98.
-2.   The variables **"relh"** and **"dwpc"** are moderately correlated at 0.44. The variables **"drct"** and **"sped"** are moderately correlated at 0.4.
-
-The above observations are very similar to those gained from the previous SUT station data correlation heatmap. However, we can also note that in general, the correlations between variables for this HXD dataset are slightly lower.
-
-
-
 ### Merging Datasets
 After cleaning and completing some of the preparation for the buoy and weather station datasets, they will need to be merged into a single dataset for modeling. Merging SUT and HXD datasets were simple as the contained the same variables and measurements, therefore the process only required an appending of one dataset to the other.
 
@@ -111,9 +87,8 @@ Combining the data with the buoy was a little more complicated, but it was manag
 
 
 
-
 ### Calculation of Sea Breeze
-The Formula to calculate the Sea Breeze Index (SBI) according to the Simpson and Walsh is 
+The Formula to calculate the Sea Breeze Index (SBI) according to the <a href="https://doi.org/10.1175/1520-0434(2003)018<0614:ASSPAF>2.0.CO;2">Simpson and Walsh</a> is 
 
 ![image](https://user-images.githubusercontent.com/48931690/142338267-3720cb5e-0aa7-4e10-bed6-1da18d772ad9.png)
                 
