@@ -176,7 +176,7 @@ SBI = SBI*10000
 
 ## Data Modeling
 
-We decided to model the data using both unsupervised and supervised techniques using k-means clustering and logistic regression. 
+We decided to model the data using both unsupervised and supervised techniques using k-means clustering, logistic regression, and a support vector machine (SVM). 
 
 ### K-Means Clustering
 
@@ -185,6 +185,10 @@ Our first data model uses k-means clustering, with the goal of uncovering signif
 ### Logistic Regression
 
 We also used logistic regression to model the relationships between our independent variables (including "SBI") and our target variable, "AttackCat".
+
+### Support Vector Machine
+
+
 
 ## Conclusion
 
