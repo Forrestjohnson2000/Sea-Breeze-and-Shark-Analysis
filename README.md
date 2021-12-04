@@ -44,10 +44,6 @@ The first data we collected for the calculation of Sea Breeze was from Station 4
 
 This data was suggested to us by meteorologist Joe Merchant because it includes important air and water temperature data, the difference between which is a significant indicator of a sea breeze. The buoy data was collected from the last 10 years and includes the columns Year (**"YY"**), Month (**"MM"**), Day (**"DD"**), Minute (**"mm"**), Hour (**"hh"**), Wind Direction (**"WDIR"**), Wind Speed (**"WSPD"**), Gust (**"GST"**), Air Pressure (**"PRES"**), Air Temperature (**"ATMP"**), and Water Temperature (**"WTMP"**). Upon reading the original csv, we parsed the Year, Month, and Day columns to a single (**"date"**) column. We also dropped the Minute (**"mm"**) column.
 
-This displays the head and tail of our initial dataset.
-
-![image](https://user-images.githubusercontent.com/92127317/141392400-a0ba339e-9dc8-4191-b8f2-e3ad3c9aa27c.png)
-
 We make the assumption that the values 99, 999, and 9999 represent missing data. We replace these with null values, "nan" and recheck the data to see current statistics for each variable that was skewed by the 99/999/9999 values and then impute the missing data with the means. 
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
@@ -146,17 +142,17 @@ SBI = SBI*10000
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SBI%20Summary.png)
 
 ### Shark Data
+For shark presence, we used data that was previously collected for Dr. Pamela Thompson’s class. The final dataset, which was used for our models, can be seen below. We added the variable "AttackCat", which indicates whether or not there was a shark attach on any given day in the dataset.
+
 ![download](https://user-images.githubusercontent.com/48931690/144726243-d19d909f-e07e-4711-9afd-bd94a5bf0597.png)
 
 After looking at the correlation matrix we removed the variables that had a > 0.5 correlation. These variables were **"tmpc", "ATMP", "dwpc", "feel", "relh",** and **"GST"**. WE created another correlation matrix to virew the remaining variables.
 
 ![download](https://user-images.githubusercontent.com/48931690/144726292-944b58e6-ed7b-49fe-ba7b-a94ff5586290.png)
 
-
 ## Data Modeling
 
 We decided to model the data using both unsupervised and supervised techniques using k-means clustering, logistic regression, and a support vector machine (SVM). 
-
 
 ### K-Means Clustering
 
@@ -174,20 +170,25 @@ We scaled our data using a standard scaler and then created our logistic regress
 
 ![Log_first_cm](https://user-images.githubusercontent.com/92108275/144726792-d1ae06cc-e234-4e5c-bcae-81b7699f4dc2.PNG)
 
-We can see from the above that model is quite accurate at .97 but it is only accurate at predicting when there is no shark attack, it never correctly predicts a shark attack, therefore we need to look into undersampling our data.
+We can see from the above that model is quite accurate at .97 but it is only accurate at predicting when there is no shark attack, it never correctly predicts a shark attack. THis is because the data is imbalanced; therefore, we need to look into undersampling and/or oversampling our data.
 
-We then used a pipeline which included both undersampling and oversampling to solve our problem and came up with the following results: We had an overall accuracy score of .810 and an AUC score of .787 which fe found to be a lot better considering the model was now correctly predicting 13 of the 19 total shark attacks in the augmented dataset.
+We then used a pipeline which included both undersampling and oversampling to solve our problem and came up with the following results: we had an overall accuracy score of .810 and an AUC score of .787, which we found to be a lot better, considering the model was now correctly predicting 13 of the 19 total shark attacks in the augmented dataset.
 
 ![Log_2nd_cm1](https://user-images.githubusercontent.com/92108275/144726976-953fd8ca-b134-4861-982e-04f49666b7b6.PNG)
 
-Additionally, we looked at the coefficients of our model to teset and see if our calculated Sea Breeze Indicator, was, in fact, making any sort of difference as we hoped. We then found the top 7 features of the dataset by coefficient.
+Additionally, we looked at the coefficients of our model to test and see if our calculated Sea Breeze Indicator was, in fact, making any sort of difference as we hoped. We then found the top 7 features of the dataset by coefficient.
 
 ![top7ft](https://user-images.githubusercontent.com/92108275/144727101-daaa86bd-74e1-46a0-8aa7-9a94490b4be2.PNG)
 
-This graph shows that SBI is the top feature in predicting a shark attack, with a highly negative coefficient which would make sense as lower SBI leads to a higher chance of sea breeze. This seems to prove that our Sea Breeze Indicator that we created is indeed a strong predictor of shark attacks as we hypothesized.
+This graph shows that SBI is the top feature in predicting a shark attack, with a highly negative coefficient which would make sense, as lower SBI leads to a higher chance of sea breeze. This seems to prove that our Sea Breeze Indicator that we created is indeed a strong predictor of shark attacks as we hypothesized.
 
 ### Support Vector Machine
 
+We also used a Support Vector Machine (SVM) to model the relationship between our independent variables and "AttackCat". The initial baseline model, based on scaled data, gave the same results as the logistic regression, again due to imbalanced data. We again found that a pipeline of under- and oversampling gave the best result, which gave an accuracy of 0.783 and an ROC AUC score of 0.781.
+
+We can also see that SBI has the largest absolute value coefficient. As the variables as scaled, this tells us that it may play a significant role in the overall model.
+
+The permutation importance is the decrease in a model score when a single feature value is randomly shuffled. SBI has the highest permutation importance, followed by PRES. This leads us to believe that these may be the most important features in this model.
 
 
 ## Conclusion
