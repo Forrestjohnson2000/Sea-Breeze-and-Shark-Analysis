@@ -171,7 +171,11 @@ SBI = SBI*10000
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SBI%20Summary.png)
 
 ### Shark Data
+![download](https://user-images.githubusercontent.com/48931690/144726243-d19d909f-e07e-4711-9afd-bd94a5bf0597.png)
 
+After looking at the correlation matrix we removed the variables that had a > 0.5 correlation. These variables were **"tmpc", "ATMP", "dwpc", "feel", "relh",** and **"GST"**. WE created another correlation matrix to virew the remaining variables.
+
+![download](https://user-images.githubusercontent.com/48931690/144726292-944b58e6-ed7b-49fe-ba7b-a94ff5586290.png)
 
 
 ## Data Modeling
