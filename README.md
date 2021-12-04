@@ -72,11 +72,6 @@ To gain an understanding of what each column was read in as. A few notable takea
 
 ![image](https://user-images.githubusercontent.com/48931690/142335608-e539073b-9826-4738-a39c-f459f1389885.png)
 
-The following images examine the initial HXD weather station dataset further. showing the first few values as well as a description of the statistically summations of the corresponding variables.
-![image](https://user-images.githubusercontent.com/48931690/142335764-1923743b-a277-4f7c-b310-7684cdb10a6c.png)
-
-![image](https://user-images.githubusercontent.com/48931690/142335781-be16ea28-5c99-4b16-8399-3c1a1359ca99.png)
-
 We convert the **"valid"** column to the datetime format for both datasets as this is the timestamp of when the data was recorded and this format will be easier to manipulate.
 
 Because p01m, gust_mph, skyc2, and skyl1/skyl2 have a significant percentage of null values, over about 20%, we remove them from the analysis. This also takes into consideration the fact that precipitation and cloud coverage are not considered to have a large impact on the presence of sea breeze, according to Joe Merchant. On the other hand, wind gust is highly correlated to wind speed, so removing gust_mph will not impact the overall analysis.
@@ -158,7 +153,7 @@ After substituting the values in the equation we get
 
         ρ = (pd / (287.058 T)) + (pv / (461.49 T))
 
-This variable is known as **SBI** and a value under 5 is an indication that weather factors are conducive to produce a sea breeze. We are still working on perfecting these variables and are not quite sure how accurate the final results are yet based on the description of **SBI**.
+This variable is known as **SBI** and a value under 5 is an indication that weather factors are conducive to produce a sea breeze. After evaluating the results we decided to multiply **SBI** by a factor of 10,000 to adjust our results into a more reasonable representation of the SBI score. We are not sure exactly why this was required but it gave much clearer results to use for analysis.
 
 Here are our results based on our calculations and the constants given:
 
