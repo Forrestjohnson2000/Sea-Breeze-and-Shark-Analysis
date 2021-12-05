@@ -205,6 +205,7 @@ Throughout this project, we encountered many unexpected issues and setbacks that
 **Problem:** The shark attack data was highly imbalanced. Our baseline models could achieve a 97% accuracy by predicting 0 (no shark attack) every time.
 **Solution:** We implemented a pipeline of under- and oversampling to improve our logistic regression and SVM models.
 
+
 We found that this project was unlike any of our previous work in data science and machine learning, primarily due to its intensive domain knowledge requirements and complex datasets. **However, based on all of the models we created that are described above, we were able to find results that supported the hypothesis that the presence of a sea breeze is correlated with increased shark presence in an area, represented by the occurrence of a shark attack.**
 
 We have numerous ideas of how future work could improve and expand upon our work in this project. [...]
