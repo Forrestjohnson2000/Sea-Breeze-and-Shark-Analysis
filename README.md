@@ -34,7 +34,7 @@ Using buoy and coastal weather station data from within the last ten years, do v
 
 ## Group Plan
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Group%207%20Plan%20Final.png)
+![Group Plan](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Group%207%20Plan%20Final.png)
 
 ## Data Collection, Preprocessing, and Exploratory Data Analysis
 
@@ -46,11 +46,11 @@ This data was suggested to us by meteorologist Joe Merchant because it includes 
 
 We make the assumption that the values 99, 999, and 9999 represent missing data. We replace these with null values, "nan" and recheck the data to see current statistics for each variable that was skewed by the 99/999/9999 values and then impute the missing data with the means. 
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
+![Data Description](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Data%20Description%20Post%20Nulls.png)
 
 From the histograms, we can see that Wind Speed ("WSPD"), Wind Direction ("WDIR"), and Air Temperature ("ATMP") are not normally distributed. Pressure ("PRES") and Gust ("GST") do appear to be normally distributed.
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
+![Histograms](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/Histograms.png)
 
 ### Weather Station Data
 
@@ -60,7 +60,7 @@ This data was collected over the last 8 years and includes the columns Weather S
 
 Data from each of the two weather stations was uploaded separately to gain an understanding of what each column was read in as. A few notable takeaways are that the variable **mslp**, the measurement of sea level pressure, has all null values, and therefore provides no insight to the dataframe. Additionally, some of the other columns such as **gust_mph** and the cloud coverage and height variables seem to have a significantly lower number of non-null values, which we will dig into later.
 
-![image](https://user-images.githubusercontent.com/48931690/142335608-e539073b-9826-4738-a39c-f459f1389885.png)
+![Data Info](https://user-images.githubusercontent.com/48931690/142335608-e539073b-9826-4738-a39c-f459f1389885.png)
 
 We convert the **"valid"** column to the datetime format for both datasets, as this is the timestamp of when the data was recorded, and this format will be easier to manipulate.
 
@@ -68,28 +68,28 @@ Because **"p01m"**, **"gust_mph"**, **"skyc2"**, and **"skyl1/skyl2"** have a si
 
 Using scatter matrices, we can see how each of the variables interact with one another in both the HXD and SUT weather stations. Both stations have very similar results, which makes sense as they are in a geographically similar location.
 
-![image](https://user-images.githubusercontent.com/48931690/142336870-23d295d7-bfaa-4820-a6c2-e7b52521d706.png)
+![Scatter Matrix 1](https://user-images.githubusercontent.com/48931690/142336870-23d295d7-bfaa-4820-a6c2-e7b52521d706.png)
 
-![image](https://user-images.githubusercontent.com/48931690/142337053-364bca74-4ee5-4ab4-94c5-5e9ce7ea05e0.png)
+![Scatter Matrix 2](https://user-images.githubusercontent.com/48931690/142337053-364bca74-4ee5-4ab4-94c5-5e9ce7ea05e0.png)
 
 ### Merging Datasets
 After cleaning and completing some of the preparation for the buoy and weather station datasets, they will need to be merged into a single dataset for modeling. Merging SUT and HXD datasets was simple as they contained the same variables and measurements, therefore the process only required an appending of one dataset to the other.
 
 Combining the data with the buoy was a little more complicated, but it was managed by inner joining the datasets and merging them on the date and hour of the records. While both SUT and HXD datassets had multiple records per hour, the buoy only had one resulting in repeats in the data.
 
-![image](https://user-images.githubusercontent.com/48931690/142337760-663f194b-2829-4c72-9ef6-7e120faf6ff9.png)
+![Merged Data](https://user-images.githubusercontent.com/48931690/142337760-663f194b-2829-4c72-9ef6-7e120faf6ff9.png)
 
 ### Calculation of Sea Breeze
 The Formula to calculate the Sea Breeze Index (SBI) according to the <a href="https://doi.org/10.1175/1520-0434(2003)018<0614:ASSPAF>2.0.CO;2">Simpson and Walsh</a> is 
 
-![image](https://user-images.githubusercontent.com/48931690/142338267-3720cb5e-0aa7-4e10-bed6-1da18d772ad9.png)
+![SBI](https://user-images.githubusercontent.com/48931690/142338267-3720cb5e-0aa7-4e10-bed6-1da18d772ad9.png)
                 
 Where *U* is the cross-coast component of the synoptic wind with offshore winds taken as positive.The SBI represents the ratio of synoptic wind kinetic energy to thermal gradient potential energy. Values of SBI that are above some critical value (SBIcrit) typically indicate situations in which synoptic airflow blocks sea breezes; values below (SBIcrit) typically indicate conditions conducive to sea breezes.
  
             ΔT = Tair − Tsea 
 is the difference in temperature between the ocean surface and the overland air. After taking reference from the Bernouli’s equation and modifications and calculations, equation can be modified as 
 
-![image](https://user-images.githubusercontent.com/48931690/142338306-004281f2-a8b0-49e1-813b-1933c6d2e784.png)
+![SBI](https://user-images.githubusercontent.com/48931690/142338306-004281f2-a8b0-49e1-813b-1933c6d2e784.png)
 
 Where *h* represents the thickness of the air mass that exchanges heat with the surface
 
@@ -140,7 +140,7 @@ SBI = SBI*10000
 ### Shark Data
 For shark presence, we used data that was previously collected for Dr. Pamela Thompson’s class. The final dataset, which was used for our models, can be seen below. We added the variable "AttackCat", which indicates whether or not there was a shark attach on any given day in the dataset.
 
-![download](https://user-images.githubusercontent.com/48931690/144726243-d19d909f-e07e-4711-9afd-bd94a5bf0597.png)
+![Correlation Matrix](https://user-images.githubusercontent.com/48931690/144726243-d19d909f-e07e-4711-9afd-bd94a5bf0597.png)
 
 After looking at the correlation matrix, we removed the variables that had a > 0.5 correlation. These variables were **"tmpc", "ATMP", "dwpc", "feel", "relh",** and **"GST"**. We created another correlation matrix to virew the remaining variables.
 
@@ -178,19 +178,19 @@ Additionally, we looked at the coefficients of our model to test and see if our 
 
 This graph shows that **"SBI"** is the top feature in predicting a shark attack, with a highly negative coefficient which would make sense, as lower SBI leads to a higher chance of sea breeze. This seems to prove that our Sea Breeze Indicator that we created is indeed a strong predictor of shark attacks as we hypothesized.
 
-### Support Vector Machine
+[### Support Vector Machine]
 
 We also used a Support Vector Machine (SVM) to model the relationship between our independent variables and **"AttackCat"**. The initial baseline model, based on scaled data, gave the same results as the logistic regression, again due to imbalanced data. We again found that a pipeline of under- and oversampling gave the best result, which gave an accuracy of 0.783 and an ROC AUC score of 0.781.
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Matrix.png)
+![SVM Confusion Matrix](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Matrix.png)
 
 We can also see that **"SBI"** has the largest absolute value coefficient. As the variables as scaled, this tells us that it may play a significant role in the overall model.
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Coefficients.png)
+![SVM Coefficients](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Coefficients.png)
 
 The permutation importance is the decrease in a model score when a single feature value is randomly shuffled. **"SBI"** has the highest permutation importance, followed by **"PRES"**. This leads us to believe that these may be the most important features in this model.
 
-![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Importance.png)
+![SVM Importance](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Importance.png)
 
 ## Conclusion
 
