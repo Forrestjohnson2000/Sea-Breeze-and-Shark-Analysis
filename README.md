@@ -152,8 +152,38 @@ We decided to model the data using both unsupervised and supervised techniques u
 
 ### K-Means Clustering
 
-Our first data model uses k-means clustering, with the goal of uncovering significant clusters that might indicate the presence of a sea breeze.
+Our first data model uses k-means clustering, with the goal of uncovering significant clusters that might indicate the presence of a sea breeze. 
 
+We split the data into **X** and **y** with **X** being the input variables **'drct', 'sped', 'WDIR', 'WSPD', 'PRES', 'WTMP', and 'SBI'** and y being **"AttackCat"**. This is done so that Shark Attack data doesn't influence how the clusters are formed and can be used solely for analysis on the input variables.
+
+The next step involved normalizing the input data using a MinMaxScaler module. We then performed kmeans analysis on the normalized data using multiple numbers of clusters in order to measure the silohuette score and intertia/distortion of clusters based on how many there were. Silohuette score measures how separated the data point in each cluster are from one another. The higher the score the better the kmeans using that number of clusters performed. Intertia/distortion measures the distances and or separation of the data points within the clusters so having a lower inertia is better.
+
+Here are the visualizations below:
+![kmeans inertia](https://user-images.githubusercontent.com/48931690/144730290-af89e70f-c819-4ab7-8584-637b31cfb4b5.png)
+
+![kmeans score](https://user-images.githubusercontent.com/48931690/144730298-6decb493-fedc-4384-844a-94b429062fbe.png)
+
+Although 2 clusters seems to have the highest score (ignoring kmeans with 1 cluster), the kmeans with 6 clusters performed almost as well and has a lower inertia than 2 clusters. Although the scores overall aren't high, this is expected due to the variability of weather and inability to capture all input variables.
+
+We then run kmeans analysis again on 6 clusters, then adding those clusters back into the initial data including **"AttackCat"**.
+Grouping by clusters on the average, we get the following results:
+
+![cluster group](https://user-images.githubusercontent.com/48931690/144730563-bd73a90c-c3de-4a74-95a5-09bb80ba7e7f.PNG)
+
+Here are the clusters sorted by the mean **"AttackCat"** so we can see what clusters have the most common percentage of shark attacks.
+![image](https://user-images.githubusercontent.com/48931690/144730530-2e108852-705d-4c71-acf9-0e0a51e573d6.png)
+
+Cluster 5 has the likely 
+
+![cluster values](https://user-images.githubusercontent.com/48931690/144730674-be1e7283-6bba-4f16-9e5c-2aaea77b6412.png)
+
+
+
+![Scatter Shark](https://user-images.githubusercontent.com/48931690/144730681-465cb3ac-0a33-4b99-88e0-f4e256f0c362.PNG)
+
+![correlation Shark Attacks](https://user-images.githubusercontent.com/48931690/144730679-9994ed52-7de2-4c9f-acc9-cee0fd11a18e.png)
+
+Next 
 ### Logistic Regression
 
 We also used logistic regression to model the relationships between our independent variables (including **"SBI"**) and our target variable, **"AttackCat"**.
