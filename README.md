@@ -54,41 +54,37 @@ From the histograms, we can see that Wind Speed ("WSPD"), Wind Direction ("WDIR"
 
 ### Weather Station Data
 
-For weather station data we used the METAR data collected from Iowa State University which contained datasets for multiple years from weather stations across the United States. We focused on two weather stations off of North and South Carolina, Station HXD located at Hilton Head Island in South Carolina and Station SUT located near Wilmington North Carolina.
+For weather station data, we used the METAR data collected from Iowa State University, which contains datasets for multiple years from weather stations across the United States. We focused on two weather stations off the coast of North and South Carolina: Station HXD located at Hilton Head Island in South Carolina and Station SUT located near Wilmington North Carolina.
 
-This data was collected over the last 8 years and includes the columns Weather Station ("station"), the timestamp for when the data was recorded ("valid"), Temperature in Celsius ("tmpc"), Dew Point in Celsius ("dwpc"), Relative Humidity (%) ("relh"), Real Feel Temperature in Farenheit ("feel"), Wind Direction in degrees from True North ("drct"), Wind Speed in mph ("sped"), Precipitation in mm ("p01m"), Wind Gust in mph ("gust_mph"), Sky Level 1 and 2 Cloud Coverage ("skyc1" and "skyc2"), and lastly Cloud Height Level 1 and 2 ("skyl1" and "skyl2").
+This data was collected over the last 8 years and includes the columns Weather Station ("station"), the timestamp for when the data was recorded ("valid"), Temperature in Celsius (**"tmpc"**), Dew Point in Celsius (**"dwpc"**), Relative Humidity (%) (**"relh"**), Real Feel Temperature in Fahrenheit (**"feel"**), Wind Direction in degrees from True North (**"drct"**), Wind Speed in mph (**"sped"**), Precipitation in mm (**"p01m"**), Wind Gust in mph (**"gust_mph"**), Sky Level 1 and 2 Cloud Coverage (**"skyc1"** and **"skyc2"**), and lastly Cloud Height Level 1 and 2 (**"skyl1"** and **"skyl2"**).
 
-We collected our weather station data from two different weather stations. Uploading both datasets separately as their own dataframes.
-
-To gain an understanding of what each column was read in as. A few notable takeaways are that the variable **mslp**, the measurement of sea level pressure, has all null values, and therefore provides no insight to the dataframe. Additionally, some of the other columns such as **gust_mph** and the cloud coverage and height variables seem to have a significantly lower number of non-null values, which we will dig into later.
+Data from each of the two weather stations was uploaded separately to gain an understanding of what each column was read in as. A few notable takeaways are that the variable **mslp**, the measurement of sea level pressure, has all null values, and therefore provides no insight to the dataframe. Additionally, some of the other columns such as **gust_mph** and the cloud coverage and height variables seem to have a significantly lower number of non-null values, which we will dig into later.
 
 ![image](https://user-images.githubusercontent.com/48931690/142335608-e539073b-9826-4738-a39c-f459f1389885.png)
 
-We convert the **"valid"** column to the datetime format for both datasets as this is the timestamp of when the data was recorded and this format will be easier to manipulate.
+We convert the **"valid"** column to the datetime format for both datasets, as this is the timestamp of when the data was recorded, and this format will be easier to manipulate.
 
-Because p01m, gust_mph, skyc2, and skyl1/skyl2 have a significant percentage of null values, over about 20%, we remove them from the analysis. This also takes into consideration the fact that precipitation and cloud coverage are not considered to have a large impact on the presence of sea breeze, according to Joe Merchant. On the other hand, wind gust is highly correlated to wind speed, so removing gust_mph will not impact the overall analysis.
+Because **"p01m"**, **"gust_mph"**, **"skyc2"**, and **"skyl1/skyl2"** have a significant percentage of null values, over about 20%, we remove them from the analysis. This also takes into consideration the fact that precipitation and cloud coverage are not considered to have a large impact on the presence of sea breeze, according to Joe Merchant. On the other hand, wind gust is highly correlated to wind speed, so removing gust_mph will not impact the overall analysis.
 
-Using scatter matricies we can see how each of the variables interact with one another in both the HXD and SUT weateher stations. Both stations have very similar results which makes sense as they are in a geographically similar location.
+Using scatter matrices, we can see how each of the variables interact with one another in both the HXD and SUT weather stations. Both stations have very similar results, which makes sense as they are in a geographically similar location.
 
 ![image](https://user-images.githubusercontent.com/48931690/142336870-23d295d7-bfaa-4820-a6c2-e7b52521d706.png)
 
 ![image](https://user-images.githubusercontent.com/48931690/142337053-364bca74-4ee5-4ab4-94c5-5e9ce7ea05e0.png)
 
 ### Merging Datasets
-After cleaning and completing some of the preparation for the buoy and weather station datasets, they will need to be merged into a single dataset for modeling. Merging SUT and HXD datasets were simple as the contained the same variables and measurements, therefore the process only required an appending of one dataset to the other.
+After cleaning and completing some of the preparation for the buoy and weather station datasets, they will need to be merged into a single dataset for modeling. Merging SUT and HXD datasets was simple as they contained the same variables and measurements, therefore the process only required an appending of one dataset to the other.
 
-Combining the data with the buoy was a little more complicated, but it was managed by inner joining the datasets and merging them on the date and hour of the records. While both SUT and HXD datassets had multiple records per hour, the buot only had one resulting in repeats in the data.
+Combining the data with the buoy was a little more complicated, but it was managed by inner joining the datasets and merging them on the date and hour of the records. While both SUT and HXD datassets had multiple records per hour, the buoy only had one resulting in repeats in the data.
 
 ![image](https://user-images.githubusercontent.com/48931690/142337760-663f194b-2829-4c72-9ef6-7e120faf6ff9.png)
-
-
 
 ### Calculation of Sea Breeze
 The Formula to calculate the Sea Breeze Index (SBI) according to the <a href="https://doi.org/10.1175/1520-0434(2003)018<0614:ASSPAF>2.0.CO;2">Simpson and Walsh</a> is 
 
 ![image](https://user-images.githubusercontent.com/48931690/142338267-3720cb5e-0aa7-4e10-bed6-1da18d772ad9.png)
                 
- Where *U* is the cross-coast component of the synoptic wind with offshore winds taken as positive.The SBI represents the ratio of synoptic wind kinetic energy to thermal gradient potential energy.Values of SBI that are above some critical value (SBIcrit) typically indicate situations in which synoptic airflow blocks sea breezes; values below (SBIcrit) typically indicate conditions conducive to sea breezes.
+Where *U* is the cross-coast component of the synoptic wind with offshore winds taken as positive.The SBI represents the ratio of synoptic wind kinetic energy to thermal gradient potential energy.Values of SBI that are above some critical value (SBIcrit) typically indicate situations in which synoptic airflow blocks sea breezes; values below (SBIcrit) typically indicate conditions conducive to sea breezes.
  
             ΔT = Tair − Tsea 
 is the difference in temperature between the ocean surface and the overland air. After taking reference from the Bernouli’s equation and modifications and calculations, equation can be modified as 
@@ -124,7 +120,7 @@ After substituting the values in the equation we get
 
         ρ = (pd / (287.058 T)) + (pv / (461.49 T))
 
-This variable is known as **SBI** and a value under 5 is an indication that weather factors are conducive to produce a sea breeze. After evaluating the results we decided to multiply **SBI** by a factor of 10,000 to adjust our results into a more reasonable representation of the SBI score. We are not sure exactly why this was required but it gave much clearer results to use for analysis.
+This variable is known as **SBI** and a value under 5 is an indication that weather factors are conducive to produce a sea breeze. After evaluating the results, we decided to multiply **SBI** by a factor of 10,000 to adjust our results into a more reasonable representation of the SBI score. We are not sure exactly why this was required, but it gave much clearer results to use for analysis.
 
 Here are our results based on our calculations and the constants given:
 
@@ -146,7 +142,7 @@ For shark presence, we used data that was previously collected for Dr. Pamela Th
 
 ![download](https://user-images.githubusercontent.com/48931690/144726243-d19d909f-e07e-4711-9afd-bd94a5bf0597.png)
 
-After looking at the correlation matrix we removed the variables that had a > 0.5 correlation. These variables were **"tmpc", "ATMP", "dwpc", "feel", "relh",** and **"GST"**. WE created another correlation matrix to virew the remaining variables.
+After looking at the correlation matrix, we removed the variables that had a > 0.5 correlation. These variables were **"tmpc", "ATMP", "dwpc", "feel", "relh",** and **"GST"**. We created another correlation matrix to virew the remaining variables.
 
 ![download](https://user-images.githubusercontent.com/48931690/144726292-944b58e6-ed7b-49fe-ba7b-a94ff5586290.png)
 
@@ -166,11 +162,11 @@ For our model we used the variables in the dataset below including land wind dir
 
 ![LogData](https://user-images.githubusercontent.com/92108275/144726663-0e7bec02-2116-436c-9ccc-ddfd54925bcb.PNG)
 
-We scaled our data using a standard scaler and then created our logistic regression model and achieved the following results:
+We scaled our data using a standard scaler, then created our logistic regression model and achieved the following results:
 
 ![Log_first_cm](https://user-images.githubusercontent.com/92108275/144726792-d1ae06cc-e234-4e5c-bcae-81b7699f4dc2.PNG)
 
-We can see from the above that model is quite accurate at .97 but it is only accurate at predicting when there is no shark attack, it never correctly predicts a shark attack. THis is because the data is imbalanced; therefore, we need to look into undersampling and/or oversampling our data.
+We can see from the above that the model is quite accurate at .97 but it is only accurate at predicting when there is no shark attack, it never correctly predicts a shark attack. THis is because the data is imbalanced; therefore, we need to look into undersampling and/or oversampling our data.
 
 We then used a pipeline which included both undersampling and oversampling to solve our problem and came up with the following results: we had an overall accuracy score of .810 and an AUC score of .787, which we found to be a lot better, considering the model was now correctly predicting 13 of the 19 total shark attacks in the augmented dataset.
 
