@@ -84,7 +84,7 @@ The Formula to calculate the Sea Breeze Index (SBI) according to the <a href="ht
 
 ![image](https://user-images.githubusercontent.com/48931690/142338267-3720cb5e-0aa7-4e10-bed6-1da18d772ad9.png)
                 
-Where *U* is the cross-coast component of the synoptic wind with offshore winds taken as positive.The SBI represents the ratio of synoptic wind kinetic energy to thermal gradient potential energy.Values of SBI that are above some critical value (SBIcrit) typically indicate situations in which synoptic airflow blocks sea breezes; values below (SBIcrit) typically indicate conditions conducive to sea breezes.
+Where *U* is the cross-coast component of the synoptic wind with offshore winds taken as positive.The SBI represents the ratio of synoptic wind kinetic energy to thermal gradient potential energy. Values of SBI that are above some critical value (SBIcrit) typically indicate situations in which synoptic airflow blocks sea breezes; values below (SBIcrit) typically indicate conditions conducive to sea breezes.
  
             ΔT = Tair − Tsea 
 is the difference in temperature between the ocean surface and the overland air. After taking reference from the Bernouli’s equation and modifications and calculations, equation can be modified as 
@@ -156,9 +156,9 @@ Our first data model uses k-means clustering, with the goal of uncovering signif
 
 ### Logistic Regression
 
-We also used logistic regression to model the relationships between our independent variables (including "SBI") and our target variable, "AttackCat".
+We also used logistic regression to model the relationships between our independent variables (including **"SBI"**) and our target variable, **"AttackCat"**.
 
-For our model we used the variables in the dataset below including land wind direction, land wind speed, sea wind direction, sea wind speed, pressure, water temperature, and sea breeze indicator to predict our AttackCat shark attack dependent variable.
+For our model we used the variables in the dataset below including land wind direction, land wind speed, sea wind direction, sea wind speed, pressure, water temperature, and sea breeze indicator to predict our **"AttackCat"** shark attack dependent variable.
 
 ![LogData](https://user-images.githubusercontent.com/92108275/144726663-0e7bec02-2116-436c-9ccc-ddfd54925bcb.PNG)
 
@@ -176,22 +176,33 @@ Additionally, we looked at the coefficients of our model to test and see if our 
 
 ![top7ft](https://user-images.githubusercontent.com/92108275/144727101-daaa86bd-74e1-46a0-8aa7-9a94490b4be2.PNG)
 
-This graph shows that SBI is the top feature in predicting a shark attack, with a highly negative coefficient which would make sense, as lower SBI leads to a higher chance of sea breeze. This seems to prove that our Sea Breeze Indicator that we created is indeed a strong predictor of shark attacks as we hypothesized.
+This graph shows that **"SBI"** is the top feature in predicting a shark attack, with a highly negative coefficient which would make sense, as lower SBI leads to a higher chance of sea breeze. This seems to prove that our Sea Breeze Indicator that we created is indeed a strong predictor of shark attacks as we hypothesized.
 
 ### Support Vector Machine
 
-We also used a Support Vector Machine (SVM) to model the relationship between our independent variables and "AttackCat". The initial baseline model, based on scaled data, gave the same results as the logistic regression, again due to imbalanced data. We again found that a pipeline of under- and oversampling gave the best result, which gave an accuracy of 0.783 and an ROC AUC score of 0.781.
+We also used a Support Vector Machine (SVM) to model the relationship between our independent variables and **"AttackCat"**. The initial baseline model, based on scaled data, gave the same results as the logistic regression, again due to imbalanced data. We again found that a pipeline of under- and oversampling gave the best result, which gave an accuracy of 0.783 and an ROC AUC score of 0.781.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Matrix.png)
 
-We can also see that SBI has the largest absolute value coefficient. As the variables as scaled, this tells us that it may play a significant role in the overall model.
+We can also see that **"SBI"** has the largest absolute value coefficient. As the variables as scaled, this tells us that it may play a significant role in the overall model.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Coefficients.png)
 
-The permutation importance is the decrease in a model score when a single feature value is randomly shuffled. SBI has the highest permutation importance, followed by PRES. This leads us to believe that these may be the most important features in this model.
+The permutation importance is the decrease in a model score when a single feature value is randomly shuffled. **"SBI"** has the highest permutation importance, followed by **"PRES"**. This leads us to believe that these may be the most important features in this model.
 
 ![image](https://github.com/Forrestjohnson2000/6162-Seabreeze/blob/main/Images/SVM%20Importance.png)
 
 ## Conclusion
 
+Throughout this project, we encountered many unexpected issues and setbacks that caused our work to be much more complex than we had initially anticipated. Some of the most significant problems we experienced and resolved include:
 
+Problem: Our initial plan was to find an additional dataset or record of sea breeze occurrences to use as a target variable for our data models. We researched thoroughly for a dataset that included this information, as well as reached out to a domain expert, but we were unable to find a data source.
+Solution: We were given a journal article by the domain expert that gave us the framework for creating our own sea breeze occurrence indicator. This required us to do additional data collection and several complicated calculations using our sourced variables. The end result, our Sea Breeze Index (SBI) variable, is still imperfect, due to our lack of domain expertise. However, we were able to move forward with data modeling using this measure.
+
+Problem: Our ultimate goal was to use our sea breeze index to determine whether there is a relationship between the occurrence of a sea breeze and shark presence in coastal waters. For shark presence, we used data that was previously collected for Dr. Pamela Thompson’s class. Due to the format of this dataset, we had difficulty merging it with our own in a way that preserved the relevant and accurate data within each dataset.
+Solution: We were able to resolve this problem by grouping the sea breeze dataset on a daily basis, finding the mean values for each day (at the times 14, 15, and 16), before merging the datasets.
+
+Problem: The shark attack data was highly imbalanced. Our baseline models could achieve a 97% accuracy by predicting 0 (no shark attack) every time.
+Solution: We implemented a pipeline of under- and oversampling to improve our logistic regression and SVM models.
+
+We found that this project was unlike any of our previous work in data science and machine learning, primarily due to its intensive domain knowledge requirements and complex datasets. **However, based on all of the models we created that are described above, we were able to find results that supported the hypothesis that the presence of a sea breeze is correlated with increased shark presence in an area, represented by the occurrence of a shark attack.**
