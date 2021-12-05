@@ -197,12 +197,15 @@ The permutation importance is the decrease in a model score when a single featur
 Throughout this project, we encountered many unexpected issues and setbacks that caused our work to be much more complex than we had initially anticipated. Some of the most significant problems we experienced and resolved include:
 
 **Problem:** Our initial plan was to find an additional dataset or record of sea breeze occurrences to use as a target variable for our data models. We researched thoroughly for a dataset that included this information, as well as reached out to a domain expert, but we were unable to find a data source.
+
 **Solution:** We were given a journal article by the domain expert that gave us the framework for creating our own sea breeze occurrence indicator. This required us to do additional data collection and several complicated calculations using our sourced variables. The end result, our Sea Breeze Index (SBI) variable, is still imperfect, due to our lack of domain expertise. However, we were able to move forward with data modeling using this measure.
 
 **Problem:** Our ultimate goal was to use our sea breeze index to determine whether there is a relationship between the occurrence of a sea breeze and shark presence in coastal waters. For shark presence, we used data that was previously collected for Dr. Pamela Thompson’s class. Due to the format of this dataset, we had difficulty merging it with our own in a way that preserved the relevant and accurate data within each dataset.
+
 **Solution:** We were able to resolve this problem by grouping the sea breeze dataset on a daily basis, finding the mean values for each day (at the times 14, 15, and 16), before merging the datasets.
 
 **Problem:** The shark attack data was highly imbalanced. Our baseline models could achieve a 97% accuracy by predicting 0 (no shark attack) every time.
+
 **Solution:** We implemented a pipeline of under- and oversampling to improve our logistic regression and SVM models.
 
 
