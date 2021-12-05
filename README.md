@@ -178,7 +178,7 @@ Additionally, we looked at the coefficients of our model to test and see if our 
 
 This graph shows that **"SBI"** is the top feature in predicting a shark attack, with a highly negative coefficient which would make sense, as lower SBI leads to a higher chance of sea breeze. This seems to prove that our Sea Breeze Indicator that we created is indeed a strong predictor of shark attacks as we hypothesized.
 
-[### Support Vector Machine]
+### Support Vector Machine
 
 We also used a Support Vector Machine (SVM) to model the relationship between our independent variables and **"AttackCat"**. The initial baseline model, based on scaled data, gave the same results as the logistic regression, again due to imbalanced data. We again found that a pipeline of under- and oversampling gave the best result, which gave an accuracy of 0.783 and an ROC AUC score of 0.781.
 
