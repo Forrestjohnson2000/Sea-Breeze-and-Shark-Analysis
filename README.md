@@ -248,4 +248,15 @@ Throughout this project, we encountered many unexpected issues and setbacks that
 
 We found that this project was unlike any of our previous work in data science and machine learning, primarily due to its intensive domain knowledge requirements and complex datasets. **However, based on all of the models we created that are described above, we were able to find results that supported the hypothesis that the presence of a sea breeze is correlated with increased shark presence in an area, represented by the occurrence of a shark attack.**
 
-We have numerous ideas of how future work could improve and expand upon our work in this project. [...]
+
+## Future Work
+We have numerous ideas of how future work could improve and expand upon our work in this project.
+
+**1. Scrape shark data from 2017 to 2021**
+        - To take this data to the next step, in the future we could scrape shark attack data from 2017 onward and add it to the current dataset. By doing this more of the                 weather data can be used than we were able to. Our current modelling could be used as training for the future years.
+**2. Review and research a better indicator for SBI**
+        - Although we were able to calculate and utilize a good indicator for seabreeze through the Sea Breeze Index, we were not confident in its accuracy and ability to truly            capture the presence of a sea breeze. In the future it would be better to put more time and effort in to calculating **SBI** and the factors that go into it with more            accuracy.
+**3. Add SBI calculation to previous shark attack analysis**
+        - Dr. Thompson's class previously performed an analysis of factors and their influence on the rate of shark attacks. It might provide more insights to merge our **SBI**            calculation to that data and analysis and see how that affects the analysis and a reproduction of results.
+   
+     
