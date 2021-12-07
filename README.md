@@ -142,7 +142,7 @@ For shark presence, we used data that was previously collected for Dr. Pamela Th
 
 ![Correlation Matrix](https://user-images.githubusercontent.com/48931690/144726243-d19d909f-e07e-4711-9afd-bd94a5bf0597.png)
 
-After looking at the correlation matrix, we removed the variables that had a > 0.5 correlation. These variables were **"tmpc", "ATMP", "dwpc", "feel", "relh",** and **"GST"**. We created another correlation matrix to virew the remaining variables.
+After looking at the correlation matrix, we removed the variables that had a > 0.5 correlation. These variables were **"tmpc", "ATMP", "dwpc", "feel", "relh",** and **"GST"**. We created another correlation matrix to view the remaining variables. We kept both **"WDIR"** and **"drct"** as well as **"sped"** and **"WSPD"** despite their high correlation because of the importance of having a land and sea measurement of wind direction a wind speed.
 
 ![download](https://user-images.githubusercontent.com/48931690/144726292-944b58e6-ed7b-49fe-ba7b-a94ff5586290.png)
 
