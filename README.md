@@ -170,7 +170,7 @@ Grouping by clusters on the average, we get the following results:
 
 ![cluster group](https://user-images.githubusercontent.com/48931690/144730563-bd73a90c-c3de-4a74-95a5-09bb80ba7e7f.PNG)
 
-We also included a bar graph showing the number of valuaes that are within each cluster so we have an idea of the proportion and significance of clusters and their values.
+We also included a bar graph showing the number of values that are within each cluster so we have an idea of the proportion and significance of clusters and their values.
 
 ![cluster values](https://user-images.githubusercontent.com/48931690/144730674-be1e7283-6bba-4f16-9e5c-2aaea77b6412.png)
 
@@ -178,11 +178,15 @@ Here are the clusters sorted by the mean **"AttackCat"** so we can see what clus
 
 ![image](https://user-images.githubusercontent.com/48931690/144730530-2e108852-705d-4c71-acf9-0e0a51e573d6.png)
 
-Cluster 5 has the most liklihood of a shark attack occuring. Interestingly we also notice that the sea breeze index is the lowest, meaning it has the best conditions for a seabreeze to occur. To examine this further we created a scatterplot with probability of shark attacks and sea breeze index while also measuring wind direction and grouped by cluster. When comparing to the baseline of shark attacks across the entire data, we see that a lower **SBI** is indicative of more attacks. The one point the doesn't follow this has a very different wind direction than the other clusters above the baseline. This indicates wind direction also plays a significant role in shark attack frequency which is reinforced by the dependence of a strong seabreeze on the wind running parallel to the coast.
+Cluster 5 has the most liklihood of a shark attack occuring. Interestingly, we also notice that the sea breeze index is the lowest, meaning it has the best conditions for a sea breeze to occur. 
+
+To examine this further we created a scatterplot with probability of shark attacks and sea breeze index while also measuring wind direction and grouped by cluster. When comparing to the baseline of shark attacks across the entire data, we see that a lower **SBI** is indicative of more attacks. 
+
+The one point the doesn't follow this has a very different wind direction than the other clusters above the baseline. This indicates wind direction also plays a significant role in shark attack frequency which is reinforced by the dependence wind direction running perpendicular to the coast to create a strong sea breeze.
 
 ![Scatter Shark](https://user-images.githubusercontent.com/48931690/144730681-465cb3ac-0a33-4b99-88e0-f4e256f0c362.PNG)
 
-Lastly, we looked at a correlation in the clusters of the various variables to Frequency of Shark Attacks. The two most notable correlations are **Water Temperature** and **SBI**. The Water temperature correlation backs up the data shown by Jor Merchant that showed the increase in shark attacks coincided with a higher than normal water temperature. **Sea Breeze Index** has a large correlation at around 0.8. This seems to prove that sea breeze or an environment conducive to sea breeze is a good predictor of the freqeuncy of shark attacks.
+Lastly, we looked at a correlation in the clusters of the various variables to frequency of shark attacks. The two most notable correlations are **Water Temperature** and **SBI**. The water temperature correlation backs up the data shown by Joe Merchant that showed the increase in shark attacks coincided with a higher than normal water temperature. **Sea Breeze Index** has a large correlation at around 0.8. This seems to prove that sea breeze or an environment conducive to sea breeze is a good predictor of the freqeuncy of shark attacks.
 
 ![correlation Shark Attacks](https://user-images.githubusercontent.com/48931690/144730679-9994ed52-7de2-4c9f-acc9-cee0fd11a18e.png)
 
