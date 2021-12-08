@@ -22,7 +22,7 @@ Some features we plan to look into include, but are not limited to:
 </figure>
 
 **Research Question:**
-Using buoy and coastal weather station data from within the last ten years, do various coastal weather phenomena such as sea and land temperature and turbidity accurately predict the presence of a sea breeze on the Carolina coast?
+Using buoy and coastal weather station data from within the last ten years, do various coastal weather phenomena such as sea and land temperature and turbidity accurately predict the presence of a sea breeze on the Carolina coast? Does the presence of a seabreeze increase the liklihood of shark presence on Carolina's shoreline as measured by shark attacks?
 
 **Data Resources:**
 - Weather Station Data: https://mesonet.agron.iastate.edu/request/download.phtml?network=SC_ASOS
